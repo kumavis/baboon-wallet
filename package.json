@@ -4,11 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "beefy src/index.js --open"
+    "start": "cd src && beefy index.js:bundle.js --open",
+    "build": "mkdir build && browserify src/index.js > build/bundle.js && cp src/index.html build/",
+    "deploy": "ghpages -p build"
   },
   "devDependencies": {
     "beefy": "^2.1.8",
-    "browserify": "^16.5.1"
+    "browserify": "^16.5.1",
+    "ghpages": "^0.0.10"
   },
   "dependencies": {
     "circomlib": "^0.2.3",
