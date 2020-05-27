@@ -1,0 +1,18 @@
+{
+  "name": "baboon-wallet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "beefy src/index.js --open"
+  },
+  "devDependencies": {
+    "beefy": "^2.1.8",
+    "browserify": "^16.5.1"
+  },
+  "dependencies": {
+    "circomlib": "^0.2.3",
+    "hat": "^0.0.3",
+    "snarkjs": "0.1.20"
+  }
+}
