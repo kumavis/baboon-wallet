@@ -17,10 +17,9 @@ class Actor {
     const actions = Object.entries(Object.getOwnPropertyDescriptors(proto))
       .filter(([_, { value }]) => typeof value === 'function')
       .filter(([key]) => key !== 'constructor')
-    console.log(proto, actions)
 
     return `
-      <br><br>${this.constructor.name}
+      <br><br>${this.constructor.name}: ${this.id}
       <br>caps: ${this.capabilites.join(', ')}
       <br>${actions.map(([key, fn]) => {
         return `<button onclick="callActor('${this.id}', '${key}')">${key}</button>`
@@ -85,7 +84,7 @@ const state = {
 
 window.callActor = async (id, methodName) => {
   const actor = state.actors.find(actor => actor.id === id)
-  log(`calling "${methodName}" on actor ${id}`)
+  // log(`calling "${methodName}" on actor ${id}`)
   const result = await actor[methodName]()
   log(`called "${methodName}" on actor ${id} and got ${JSON.stringify(result, null, 2)}`)
 }
